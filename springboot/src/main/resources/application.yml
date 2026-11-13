@@ -1,0 +1,31 @@
+server:
+  port: 9090
+  address: 127.0.0.1
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${FOOD_DB_USER:root}
+    password: ${FOOD_DB_PASSWORD:}
+    url: "jdbc:mysql://127.0.0.1:${FOOD_DB_PORT:3306}/food_recommendation_demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai"
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# 配置mybatis实体和xml映射
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# 分页
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+ip: localhost

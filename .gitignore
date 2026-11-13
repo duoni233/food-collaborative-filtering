@@ -1,2 +1,14 @@
-out/
+/out/
 *.class
+/target/
+/springboot/target/
+/vue/node_modules/
+/vue/dist/
+/files/
+/springboot/files/
+.idea/
+*.iml
+.env
+.env.local
+.env.*.local
+*.log
